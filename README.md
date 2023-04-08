@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ババ抜き
 
-## Getting Started
+ババ抜きは、トランプを使ったシンプルなカードゲームです。プレイヤーは、同じ値のカードを持っていないことが目標です。最後に同じ値のカードを持っているプレイヤーが敗者になります。
 
-First, run the development server:
+## ゲームのルール
 
-```bash
-npm run dev
-# or
-yarn dev
+1. トランプのカードをシャッフルし、プレイヤーに配ります。
+2. 各プレイヤーは、自分の手札から同じ値のカードを捨てます。
+3. 最初のプレイヤーが決まり、順番にカードを引きます。
+4. 引いたカードと手札のカードを比較し、同じ値のカードがあれば捨てます。
+5. 手札がなくなったプレイヤーは勝者です。最後に残ったプレイヤーが敗者です。
+
+## インストール
+
+このプロジェクトは、Node.jsとnpmがインストールされた環境で動作します。
+
+1. リポジトリをクローンします。
+
+```
+git clone https://github.com/SotaYamaguchi/babanuki-web.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 依存関係をインストールします。
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+cd babanuki-web
+pnpm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 実行
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. 開発サーバーを起動します。
 
-## Learn More
+```
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. ブラウザで[http://localhost:3000](http://localhost:3000)にアクセスします。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## テスト
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+テストスイートを実行するには、次のコマンドを実行します。
 
-## Deploy on Vercel
+```
+pnpm test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 貢献
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+プロジェクトへの貢献やフィードバックは大歓迎です。プルリクエストやイシューを通じて参加してください。
