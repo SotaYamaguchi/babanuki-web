@@ -110,6 +110,121 @@ test("手札に同じ値のカードがないことを確認", () => {
 });
 });
 
+describe("getNextPlayer", () => {
+  const playerCards: Card[][] = [
+    [
+      { value: "A", suit: "♠" },
+      { value: "K", suit: "♦" },
+    ],
+    [
+      { value: "Q", suit: "♥" },
+      { value: "J", suit: "♣" },
+    ],
+    [
+      { value: "10", suit: "♠" },
+      { value: "9", suit: "♦" },
+    ],
+  ];
+
+  it("should return the next player when the current player is not the last one", () => {
+    const nextPlayer = getNextPlayer(1, playerCards);
+    expect(nextPlayer).toBe(2);
+  });
+
+  it("should return the first player when the current player is the last one", () => {
+    const nextPlayer = getNextPlayer(2, playerCards);
+    expect(nextPlayer).toBe(0);
+  });
+});
+
+
+describe("compareCards", () => {
+  test("returns an array with the same value cards", () => {
+    const currentCard: Card = { value: "5", suit: "♠" };
+    const playerCards: Card[] = [
+      { value: "3", suit: "♦" },
+      { value: "5", suit: "♣" },
+      { value: "5", suit: "♠" },
+      { value: "A", suit: "♥" },
+    ];
+
+    const sameValueCards = compareCards(currentCard, playerCards);
+
+    expect(sameValueCards).toEqual([
+      { value: "5", suit: "♣" },
+      { value: "5", suit: "♠" },
+    ]);
+  });
+
+  test("returns an empty array if there are no same value cards", () => {
+    const currentCard: Card = { value: "10", suit: "♦" };
+    const playerCards: Card[] = [
+      { value: "3", suit: "♦" },
+      { value: "5", suit: "♣" },
+      { value: "4", suit: "♠" },
+      { value: "A", suit: "♥" },
+    ];
+
+    const sameValueCards = compareCards(currentCard, playerCards);
+
+    expect(sameValueCards).toEqual([]);
+  });
+});
+
+describe("isPlayerOutOfCards", () => {
+  test("returns true for an empty hand", () => {
+    const playerCards: Card[] = [];
+    expect(isPlayerOutOfCards(playerCards)).toBe(true);
+  });
+
+  test("returns false for a non-empty hand", () => {
+    const playerCards: Card[] = [
+      { value: "5", suit: "♠" },
+      { value: "Q", suit: "♣" },
+      { value: "2", suit: "♦" },
+    ];
+    expect(isPlayerOutOfCards(playerCards)).toBe(false);
+  });
+});
+
+
+describe("discardDuplicateCards関数のテスト", () => {
+  test("手札に重複がある場合、重複を捨てた手札が返される", () => {
+    const playerCards: Card[] = [
+      { value: "A", suit: "♠" },
+      { value: "2", suit: "♥" },
+      { value: "A", suit: "♣" },
+      { value: "Q", suit: "♦" },
+      { value: "K", suit: "♠" },
+    ];
+    const expected: Card[] = [
+      { value: "A", suit: "♠" },
+      { value: "2", suit: "♥" },
+      { value: "Q", suit: "♦" },
+      { value: "K", suit: "♠" },
+    ];
+
+    expect(discardDuplicateCards(playerCards)).toEqual(expected);
+  });
+
+  test("手札に重複がない場合、手札がそのまま返される", () => {
+    const playerCards: Card[] = [
+      { value: "A", suit: "♠" },
+      { value: "2", suit: "♥" },
+      { value: "Q", suit: "♦" },
+      { value: "K", suit: "♠" },
+    ];
+
+    expect(discardDuplicateCards(playerCards)).toEqual(playerCards);
+  });
+
+  test("手札が空の場合、空の配列が返される", () => {
+    const playerCards: Card[] = [];
+
+    expect(discardDuplicateCards(playerCards)).toEqual([]);
+  });
+});
+
 describe("getWinningPlayers", () => {
   test("プレイヤー数から敗者以外のプレイヤーのインデックスをカンマ区切りで出力", () => {
     expect(getWinningPlayers(4, 2)).toBe("1, 2, 4");
