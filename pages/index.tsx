@@ -98,8 +98,8 @@ return (
         className={styles.input}
       />
     </div>
-    <div className={styles.customButtionWrapper}>
-      <button onClick={startGame} className={styles.customButtion}>
+    <div className={styles.customButtonWrapper}>
+      <button onClick={startGame} className={styles.customButton}>
         ゲームを開始
       </button>
     </div>
@@ -150,7 +150,7 @@ return (
               : null}
           </ul>
         </div>
-        <button onClick={playTurn} className={styles.customButtion}>
+        <button onClick={playTurn} className={styles.customButton}>
           カードを取る
         </button>
       </div>

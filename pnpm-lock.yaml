@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@playwright/test': ^1.32.2
   '@testing-library/dom': ^9.2.0
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
@@ -16,6 +17,7 @@ specifiers:
   jest: ^29.5.0
   jest-environment-jsdom: ^29.5.0
   next: 13.3.0
+  playwright: ^1.32.2
   react: 18.2.0
   react-dom: 18.2.0
   typescript: ^5.0.4
@@ -24,6 +26,7 @@ dependencies:
   next: 13.3.0_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
+  '@playwright/test': 1.32.2
   '@testing-library/dom': 9.2.0
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
@@ -38,6 +41,7 @@ devDependencies:
   eslint-config-next: 13.3.0_voubu7prgxjfsfbgx5d4sqnwiy
   jest: 29.5.0_@types+node@18.15.11
   jest-environment-jsdom: 29.5.0
+  playwright: 1.32.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   typescript: 5.0.4
@@ -838,6 +842,17 @@ packages:
       picocolors: 1.0.0
       tiny-glob: 0.2.9
       tslib: 2.5.0
+    dev: true
+
+  /@playwright/test/1.32.2:
+    resolution: {integrity: sha512-nhaTSDpEdTTttdkDE8Z6K3icuG1DVRxrl98Qq0Lfc63SS9a2sjc9+x8ezysh7MzCKz6Y+nArml3/mmt+gqRmQQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.15.11
+      playwright-core: 1.32.2
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /@rushstack/eslint-patch/1.2.0:
@@ -3802,6 +3817,21 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: true
+
+  /playwright-core/1.32.2:
+    resolution: {integrity: sha512-zD7aonO+07kOTthsrCR3YCVnDcqSHIJpdFUtZEMOb6//1Rc7/6mZDRdw+nlzcQiQltOOsiqI3rrSyn/SlyjnJQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  /playwright/1.32.2:
+    resolution: {integrity: sha512-jHVnXJke0PXpuPszKtk9y1zZSlzO5+2a+aockT/AND0oeXx46FiJEFrafthurglLygVZA+1gEbtUM1C7qtTV+Q==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.32.2
     dev: true
 
   /postcss/8.4.14:
