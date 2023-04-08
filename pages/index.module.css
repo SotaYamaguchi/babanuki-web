@@ -47,7 +47,7 @@
 }
 
 /* カードのコンテナ */
-.card-container {
+.cardContainer {
   display: inline-block;
   margin: 0.5rem;
   perspective: 1000px;
